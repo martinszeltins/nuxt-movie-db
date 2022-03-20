@@ -81,12 +81,11 @@
 
         methods: {
             async getSingleMovie() {
-                const data = this.$axios.$get(
+                const data = await this.$axios.$get(
                     `https://api.themoviedb.org/3/movie/${this.$route.params.id}?api_key=2188af6a39e800fe6bdc973b911ef085&language=en-US`
                 )
 
-                const result = await data
-                this.movie = result.data
+                this.movie = data
             },
         },
     }
